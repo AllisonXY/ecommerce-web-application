@@ -28,7 +28,7 @@ This is a Spring Boot application that allows users to search for and browse ele
 - [Spring Security](https://docs.spring.io/spring-security/reference/index.html) for user authentication via username and password.
 
 
-## Deploying to Heroku 
+## Deployment 
 Instructions for deploying the application to Heroku will be added in the future.
 
 ## How to Run Locally
