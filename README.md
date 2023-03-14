@@ -26,7 +26,7 @@ This is a Spring Boot application that allows users to search for and browse ele
 - Apache Maven as build tool and Tomcat as server.
 - [MySQL](https://www.mysql.com/), [JPA](https://spring.io/guides/gs/accessing-data-jpa/), and [Hibernate](https://hibernate.org/) framework for storing and querying data.
 - [Spring Security](https://docs.spring.io/spring-security/reference/index.html) for user authentication via username and password.
-
+- [JQuery](https://jquery.com/) and [Bootstrap](https://getbootstrap.com/) for responsive design and styling of website.
 
 ## Deploying to Heroku
 Instructions for deploying the application to Heroku will be added in the future.
