@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<!--import thymeleaf template engine as th-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!--display responsively-->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimal-scale=1.0">
+  <title>Home- Shopio Admin</title>
+  
+   <!--link a  Bootstrap CSS file for styling-->
+   <!--th: Themeleaf will map the url relative to the app: /ShopioAdmin -->
+   <!--enclose the url with @{} -->
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+   
+   <!--load jquery and bootstrap js files -->
+  <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+  <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+</head>
+
+<body>
+	<!--create a full-width container that spans entire width of view-->
+<div class="container-fluid">
+	
+	<!--add nav bar, add logo to it, add home page link to logo-->
+	<div>
+			<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+				<a class="navbar-brand" th:href="@{/}">
+			    	<img th:src="@{/images/shopio-logo.jpg}" width="150" height="100"/>
+				</a>
+				
+				<!--creates a button that when clicked, toggles the display of topNavbar and show in drop-down list -->
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavbar">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				
+				<!-- nav bar with links for diff tabs -->
+				<div class="collapse navbar-collapse" id="topNavbar">
+					<url class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/users}">Users</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/categories}">Categories</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/brands}">Brands</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/products}">Products</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/shipping}">Shipping</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/orders}">Orders</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/report}">SalesReport</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/menus}">Menus</a>
+						</li>
+									
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/settings}">Settings</a>
+						</li>
+
+					</url>
+				</div>
+			
+			</nav>
+	</div>
+		
+	<div>
+		<h1>Manage Users</h1>
+		<a th:href="@{/users/new}">Create New User</a>
+	</div>
+	
+	<div>
+		<!--Thymeleaf template to generate HTML table of user data--> 
+		<table class="table table-bordered table-striped table-hover table-responsive-xl">
+			<thead class="thead-dark">  <!--table head & col names-->
+				<tr>  <!--table rows-->
+					<th>User ID</th>   <!--header cells-->
+					<th>Photos</th>
+					<th>Email</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Roles</th>
+					<th>Enabled</th>
+					<th></th>
+				</tr>				
+			</thead>
+			<tbody>
+				<tr th:each="user:${listUsers}">  <!--loop over each user in listUsers-->
+					<td>[[${user.id}]]</td>
+					<td></td>
+					<td>[[${user.email}]]</td>
+					<td>[[${user.firstName}]]</td>
+					<td>[[${user.lastName}]]</td>
+					<td>[[${user.roles}]]</td>
+					<td>[[${user.enabled}]]</td>
+					<td>Edit &nbsp; Delete</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<div class="text-center">
+		<p>Shopio Control Panel - Copyright &copy; Shopio</p>
+	</div>
+	
+</div>
+</body>
+</html>
